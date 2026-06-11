@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinguaFlow — AI Language Translator</title>
+  <meta name="description" content="Translate text instantly between 100+ languages with LinguaFlow. Fast, free, and beautiful AI-powered translation tool." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Animated background orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <span class="logo-text">LinguaFlow</span>
+    </div>
+    <div class="header-badge">
+      <span class="badge-dot"></span>
+      <span>100+ Languages</span>
+    </div>
+  </header>
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero-title">
+      Break Every<br />
+      <span class="gradient-text">Language Barrier</span>
+    </h1>
+    <p class="hero-subtitle">Instant, accurate translations powered by AI — connect with the world in any language.</p>
+  </section>
+  <!-- Main Translator Card -->
+  <main class="translator-container" role="main">
+    <div class="translator-card" id="translatorCard">
+      <!-- Language Selector Bar -->
+      <div class="lang-bar">
+        <div class="lang-select-wrap">
+          <label for="sourceLang" class="visually-hidden">Source Language</label>
+          <div class="select-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </div>
+          <select id="sourceLang" class="lang-select" aria-label="Source language"></select>
+        </div>
+        <button class="swap-btn" id="swapBtn" aria-label="Swap languages" title="Swap languages">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M8 3 4 7l4 4"/>
+            <path d="M4 7h16"/>
+            <path d="m16 21 4-4-4-4"/>
+            <path d="M20 17H4"/>
+          </svg>
+        </button>
+        <div class="lang-select-wrap">
+          <label for="targetLang" class="visually-hidden">Target Language</label>
+          <div class="select-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </div>
+          <select id="targetLang" class="lang-select" aria-label="Target language"></select>
+        </div>
+      </div>
+      <!-- Text Areas -->
+      <div class="text-panels">
+        <!-- Source Panel -->
+        <div class="panel source-panel">
+          <div class="panel-header">
+            <span class="panel-label">Source Text</span>
+            <div class="panel-actions">
+              <button class="icon-btn" id="clearBtn" title="Clear text" aria-label="Clear source text">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="15" y1="9" x2="9" y2="15"/>
+                  <line x1="9" y1="9" x2="15" y2="15"/>
+                </svg>
+              </button>
+              <button class="icon-btn" id="ttsSourceBtn" title="Listen (Text-to-Speech)" aria-label="Listen to source text">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <textarea
+            id="sourceText"
+            class="text-area"
+            placeholder="Enter text to translate…"
+            maxlength="5000"
+            aria-label="Enter text to translate"
+            spellcheck="true"
+          ></textarea>
+          <div class="panel-footer">
+            <span class="char-count" id="charCount">0 / 5000</span>
+            <button class="translate-btn" id="translateBtn" aria-label="Translate text">
+              <span class="btn-text">Translate</span>
+              <span class="btn-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+              <div class="btn-loader" id="btnLoader"></div>
+            </button>
+          </div>
+        </div>
+        <!-- Divider -->
+        <div class="panel-divider" aria-hidden="true">
+          <div class="divider-line"></div>
+        </div>
+        <!-- Target Panel -->
+        <div class="panel target-panel">
+          <div class="panel-header">
+            <span class="panel-label">Translation</span>
+            <div class="panel-actions">
+              <button class="icon-btn" id="copyBtn" title="Copy translation" aria-label="Copy translated text" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+              </button>
+              <button class="icon-btn" id="ttsTargetBtn" title="Listen (Text-to-Speech)" aria-label="Listen to translated text" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="text-area output-area" id="outputArea" aria-live="polite" aria-label="Translation output">
+            <span class="placeholder-text" id="outputPlaceholder">Your translation will appear here…</span>
+          </div>
+          <div class="panel-footer">
+            <span class="word-count" id="wordCount"></span>
+            <div class="copy-feedback" id="copyFeedback" aria-live="assertive">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Copied!
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Error / Status -->
+      <div class="status-bar" id="statusBar" role="alert" aria-live="polite"></div>
+    </div>
+    <!-- Quick Language Pills -->
+    <div class="quick-langs" aria-label="Quick language shortcuts">
+      <span class="quick-label">Quick select:</span>
+      <div class="pills" id="quickPills"></div>
+    </div>
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-number">100+</span>
+        <span class="stat-label">Languages</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">Free</span>
+        <span class="stat-label">No Sign-up</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">Instant</span>
+        <span class="stat-label">Translations</span>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>Powered by MyMemory Translation API &nbsp;·&nbsp; Built with ❤️ by LinguaFlow</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
