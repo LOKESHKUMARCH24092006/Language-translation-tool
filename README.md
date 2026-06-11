@@ -12,7 +12,6 @@ The objective of these projects was to gain hands-on experience in designing, de
 An AI-powered language translation application that enables users to translate text between multiple languages using translation APIs.
 
 Features:
-
 Multi-language translation support,
 Source and target language selection,
 Real-time translation results,
