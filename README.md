@@ -8,9 +8,11 @@ The objective of these projects was to gain hands-on experience in designing, de
 🚀 Projects Included
 
 🌐 1. Language Translation Tool
+
 An AI-powered language translation application that enables users to translate text between multiple languages using translation APIs.
 
 Features
+
 Multi-language translation support
 Source and target language selection
 Real-time translation results
@@ -23,6 +25,7 @@ Google Translate API
 NLP Libraries
 
 💬 2. FAQ Chatbot
+
 An intelligent chatbot designed to answer frequently asked questions using Natural Language Processing techniques.
 
 Features
@@ -39,6 +42,7 @@ Cosine Similarity
 Streamlit
 
 🎵 3. Music Generation with AI
+
 A deep learning-based music generation system capable of learning musical patterns and generating original melodies.
 
 Features
@@ -54,6 +58,7 @@ Music21
 MIDI Processing
 
 🎯 4. Object Detection and Tracking
+
 A real-time computer vision system that detects and tracks objects in videos using advanced deep learning models.
 
 Features
@@ -70,6 +75,7 @@ Deep SORT / SORT
 NumPy
 
 🛠️ Technology Stack
+
 Python
 Machine Learning
 Deep Learning
@@ -100,6 +106,7 @@ CodeAlpha-AI-Internship/
 └── requirements.txt
 
 🎯 Learning Outcomes
+
 Through these projects, I gained practical experience in:
 Natural Language Processing (NLP)
 Machine Learning Workflows
@@ -111,6 +118,7 @@ Real-Time AI Systems
 Model Evaluation and Deployment
 
 📈 Skills Demonstrated
+
 Python Programming
 Artificial Intelligence
 Machine Learning
@@ -122,8 +130,11 @@ Problem Solving
 Software Development
 
 👨‍💻 Author
+
 CHIPPA LOKESH KUMAR
+
 B.Tech – Artificial Intelligence & Machine Learning
+
 Malla Reddy Engineering College and Management Sciences
 
 🏆 Internship
